@@ -4,11 +4,11 @@ services:
   main-app:
     image: stocks-app
     build:
-      context: ./stocks-app
+      context: ./stock
     ports:
       - "8080:8080"
     depends_on:
-      - issuer-microservice
+      - stock-microservice
 
   issuer-microservice:
     image: issuer-microservice
@@ -20,6 +20,6 @@ services:
   react-app:
     image: react-app
     build:
-      context: ./react-app
+      context: ./stock/src/frontend
     ports:
       - "3000:80"
